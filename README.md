@@ -8,16 +8,22 @@
 
 ## Description
 
-In this lab, we'll be recreating the basic functionality that we already built out in [Playlister-rb](http://learn.co/lessons/940) but this time, using ActiveRecord associations.
+In this lab, we'll be recreating the basic functionality that we already built out in 
+[Playlister-rb](http://learn.co/lessons/940) but this time, using ActiveRecord associations.
 
-We'll have three models: Artists, Songs, and Genres. By writing a few migrations and making use of the appropriate ActiveRecord macros, we want to end up with three models that are associated with one another in a way that makes sense. I should be able to:
+We'll have three models: Artists, Songs, and Genres. By writing a few migrations and making use of the
+appropriate ActiveRecord macros, we want to end up with three models that are associated with one
+another in a way that makes sense. I should be able to:
+
 - ask an Artist about its songs and genres
 - ask a Song about its genre and its artist
 - ask a Genre about its songs and artists.
 
 ## How ActiveRecord works
 
-As an ORM, ActiveRecord works just like the ORM you've built already in labs like School Domain with DB. It provides its own abstractions and a similar API for interacting with the Database through your object model.
+As an ORM, ActiveRecord works just like the ORM you've built already in labs like School Domain with
+DB. It provides its own abstractions and a similar API for interacting with the Database through your
+object model.
 
 We're going to be using ActiveRecord to do two things:
 - store the data in a database (through a schema which we generate with migrations)
@@ -27,9 +33,13 @@ We're going to be using ActiveRecord to do two things:
 
 ### 1) Models
 
-The first thing you should do is run `rspec` from your command line. You'll probably be able to knock out a few errors pretty quickly here.
+The first thing you should do is run `rspec` from your command line. You'll probably be
+able to knock out a few errors pretty quickly here.
 
-It may be useful to go ahead and define your models at this point. You'll need to do this in the `app/models` directory. Two of the files have already been created for you, but you'll need to make one for your `Song` model. Remember, since we're using ActiveRecord, models should inherit from `ActiveRecord::Base`. A sample definition would look like this:
+It may be useful to go ahead and define your models at this point. You'll need to do this
+in the `app/models` directory. Two of the files have already been created for you, but you'll
+need to make one for your `Song` model. Remember, since we're using ActiveRecord, models should
+inherit from `ActiveRecord::Base`. A sample definition would look like this:
 
   ```ruby
   class SomeClass < ActiveRecord::Base
