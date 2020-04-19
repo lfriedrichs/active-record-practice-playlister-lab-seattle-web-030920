@@ -54,7 +54,7 @@ Take a look at the Rakefile. There are a few rake tasks that will help us with o
 
 You can run `rake db:migrate` to migrate the database and `rake db:drop` if you need to drop it.
 
-Take a look in `spec_helper.rb` which in a `config.before` block resets the database. In each spec, in an `after` block, the database is cleaned. This creates a clean database environment for each test, to avoid test errors.
+Take a look in `spec_helper.rb`. It has a `config.before` block that resets the database. In each spec, in an `after` block, the database is cleaned. This creates a clean database environment for each test, to avoid test errors.
 
 Once you've set up your migrations, it's time to create the associations between your models.
 
@@ -98,18 +98,18 @@ And Genre:
 
 The `artist_id` of 1 points to the row in the Artist table where the id is 1. And the `genre_id` of 1 points to the row in the Genre table where the id is 1.
 
-These foreign keys, in conjunction with the ActiveRecord association macros (`belongs_to`, `has_many`, `has_many through`) will allow us query to get an artist's songs or genres, a song's artist or genre, and a genre's songs and artists entirely through ActiveRecord provided methods on our classes.
+These foreign keys, in conjunction with the ActiveRecord association macros (`belongs_to`, `has_many`, `has_many through`) will allow us to query to get an artist's songs or genres, a song's artist or genre, and a genre's songs and artists entirely through ActiveRecord provided methods on our classes.
 
 ### Some Notes
 
-1. If you're having issues with your migrations not running or not representing the state of what you think your database should be run:
+1. If you're having issues with your migrations not running or not representing the state of what you think your database should be, run:
 
 ```
 rm db/playlister-dev.db
 rm db/playlister-test.db
 ```
 
-That should clear out your test and development database and force the migrations to run again with:
+That should clear out your test and development databases. Then run the migrations again with:
 
 ```
 rake db:migrate SINATRA_ENV=development
